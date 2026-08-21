@@ -1,0 +1,164 @@
+/* STYLE login.html */
+:root{
+    --primary-color: white;
+    --secondary-color: rgb(12, 37, 112);
+    --primary-font-color: black;
+    --desc-font-color: rgb(219, 218, 218);
+    --secondary-font-color: white;
+    --shadow: rgba(0, 0, 0, 0.5);
+    --primary-font: 'Inter', sans-serif;
+
+}
+
+
+body{
+    margin: 0;
+    padding: 0;
+    top: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    font-family: var(--primary-font);
+
+    background: var(--shadow);
+}
+
+
+.login-page{
+    display: flex;
+    flex-direction: row;
+}
+
+.opening-container{
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 30rem;
+    width: 25rem;
+    border-radius: 10px 0px 0px 10px;
+    background-color: var(--secondary-color);
+    color: var(--secondary-font-color);
+
+}
+
+.opening-container h1{
+    margin-bottom: 0;
+}
+
+.opening-container p{
+    color: var(--desc-font-color);
+}
+
+.opening-container button{
+    border: solid 2px var(--desc-font-color);
+    border-radius: 20px;
+    width: 6.5rem;
+    height: 1.7rem;
+    cursor: pointer;
+
+     background-color: transparent;
+     color: var(--desc-font-color);
+     font-weight: 550;
+}
+
+.opening-container button:active{
+    background-color: rgb(205, 204, 204);
+    color: var(--primary-font-color);
+}
+
+.login-container{
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0px 10px 10px 0px;
+    width: 25rem;
+  
+    background-color: var(--primary-color);
+
+}
+
+.login-container form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 1rem;
+}
+
+[type=text], [type=password]{
+    height: 2rem;
+    width: 12rem;
+    padding-left: 0.5rem;
+}
+
+[type=submit]{
+    width: 6.5rem;
+    height: 1.7rem;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+
+    background-color: var(--secondary-color);
+    color: var(--secondary-font-color);
+    font-weight: bold;
+}
+
+[type=submit]:active{
+    color: var(--primary-font-color);
+    background-color: var(--primary-color);
+    border: solid 2px black;
+    
+}
+
+.login-container h2{
+    font-size: 2rem;
+    color: var(--secondary-color);
+}
+
+.login-container a{
+    text-decoration: none;
+}
+
+.form-list-container{
+    background-color: white;
+    padding:  0rem 2rem 4rem 2rem;
+    width: 17rem;
+    border-radius: 10px;
+    box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.2);
+}
+
+
+.form-list-container form{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.form-list-container h2{
+    margin-bottom: 2.5rem;
+    font-size: 2rem;
+    text-align: center;
+
+    color: var(--secondary-color);
+}
+
+.form-list-container input{
+    margin-bottom: 1rem;
+    width: 100%;
+    padding-left: 0.1rem;
+    padding-right: 0;
+    box-sizing:border-box;
+}
+
+.form-list-container [type=submit]{
+    width: 40%;
+    height: 2.2rem;
+    margin: auto;
+    margin-top: 2rem;
+}
+
