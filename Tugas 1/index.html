@@ -8,7 +8,7 @@
 </head>
 <body>
 
-    <div class="login-page">  
+    <div class="login-page" id="loginPage">  
          <div class="opening-container">
             <h1>Selamat Datang di My SITTA</h1>
             <p>Silahkan daftar terlebih dulu jika kamu belum punya akun</p>
@@ -18,24 +18,32 @@
         <div class="login-container">
             <h2>Masuk</h2>
             <p>Atau gunakan akunmu untuk masuk</p>
-            <form action="" id="login">
-                <input type="text" placeholder="Email" required>
-                <input type="password" placeholder="Password" required>
+            <form action="" id="formLogin">
+                <input id="emailLogin" type="text" placeholder="Email" required>
+                <input id="passwordLogin" type="password" placeholder="Password" required>
                 <a href="#">Lupa Password?</a>
                 <input type="submit">    
             </form>
         </div>
    </div>
 
-   <div class="form-list-container">
+   <div class="form-list-container" id="formNewList">
         <h2>Formulir <br> Pendaftaran</h2>
         <form action="" id="formList">
-            <label for="nama">Nama</label><input type="text" required>
-            <label for="katasandi">Kata sandi</label> <input type="password" required>
-            <label for="katasandi">Konfirmasi kata sandi</label><input type="password" required>
-            <input type="submit" value="Kirim">
+            <label for="nama">Email</label>
+                <input id="email" type="text" required>
+            <label for="katasandi">Kata sandi</label>
+                <input id="password" type="password" required>
+            <label id="confirmPassword" for="katasandi">Konfirmasi kata sandi</label>
+                <input type="password" required>
+                <input type="submit" value="Kirim">
         </form>
+
+        <button id="btnBatal" class="btn-batal">Batal</button>
+        
    </div>
 
+   <script src="js/script.js"></script>
+   <script src="js/data.js"></script>
 </body>
 </html>

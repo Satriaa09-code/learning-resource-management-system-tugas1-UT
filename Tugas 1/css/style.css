@@ -135,9 +135,12 @@ input{
     text-decoration: none;
 }
 
+
+/* LIST CONTAINER */
 .form-list-container{
+    display: none;
     background-color: white;
-    padding:  0rem 2rem 4rem 2rem;
+    padding:  0rem 2rem 3rem 2rem;
     width: 17rem;
     border-radius: 10px;
 }
@@ -177,6 +180,23 @@ input{
     height: 2.2rem;
     margin: auto;
     width: 60%;
+}
+
+.btn-batal{
+    display: block;
+    border: none;
+    border-radius: 20px;
+    width: 60%;
+    margin: 15px auto;
+    height: 2.2rem;
+    background-color: rgb(150, 148, 148);
+    color: white;
+    font-weight: bold;
+}
+
+.btn-batal:active{
+    background-color: white;
+    border: solid 2px black;
 }
 
 
