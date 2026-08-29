@@ -9,31 +9,32 @@ function newList (close, open){
     formNewList.style.display = open;
 }
 
-btnDaftar.addEventListener("click", ()=>{
-    newList("none", "block");
-});
-
-btnBatal.addEventListener("click", ()=>{
-    newList("flex", "none");
-});
-
 const formList = document.getElementById("formList")
 formList.addEventListener("submit", function(event){
     event.preventDefault();
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
+    const validasiPassword = document.getElementById("validasiPassword").value;
 
     const users = getUsers();
-    users.push({
-        email: email,
-        password: password
-    });
-    saveUsers(users);
-    alert("Akun berhasil ditambahkan")
-    formList.reset();
+    if(password === validasiPassword){
+            users.push({
+            email: email,
+            password: password
+        });
 
-    newList("flex", "none");
+        saveUsers(users);
+        alert("Akun berhasil ditambahkan")
+        formList.reset();
+
+        newList("flex", "none");
+    } else{
+        alert("⚠️ KEDUA PASSWORD TIDAK SAMA");
+        return;
+    }
+    
 });
+
 
 const formLogin = document.getElementById("formLogin");
 formLogin.addEventListener("submit", function(event){
@@ -49,9 +50,21 @@ formLogin.addEventListener("submit", function(event){
     });
 
     if(user){
-        alert("✅ LOGIN BERHASIL!")
+        window.location.href = "dashboard.html"
     } else{
-        alert("⚠️EMAIL atau PASSWORD [SALAH]!")
+        alert("⚠️ EMAIL atau PASSWORD SALAH!")
     }
 
 });
+
+
+btnDaftar.addEventListener("click", ()=>{
+    newList("none", "block");
+    formLogin.reset();
+});
+
+btnBatal.addEventListener("click", ()=>{
+    newList("flex", "none");
+    formList.reset();
+});
+
