@@ -12,23 +12,35 @@ function newList (close, open){
 const formList = document.getElementById("formList")
 formList.addEventListener("submit", function(event){
     event.preventDefault();
+
+    const nama = document.getElementById("nama").value;
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
     const validasiPassword = document.getElementById("validasiPassword").value;
+    const role = document.getElementById("role").value;
+    const lokasi = document.getElementById("lokasi").value;
+    
 
-    const users = getUsers();
+    const users = dataPengguna;
     if(password === validasiPassword){
-            users.push({
+        users.push({
+            nama: nama,
             email: email,
-            password: password
+            password: password,
+            role: role,
+            lokasi: lokasi
         });
 
-        saveUsers(users);
         alert("Akun berhasil ditambahkan")
         formList.reset();
 
         newList("flex", "none");
+
+        
     } else{
+        for(let i = 0; i < users.length; i++){
+            console.log(users[i]);
+        }
         alert("⚠️ KEDUA PASSWORD TIDAK SAMA");
         return;
     }
@@ -43,7 +55,7 @@ formLogin.addEventListener("submit", function(event){
     const email = document.getElementById("emailLogin").value;
     const password = document.getElementById("passwordLogin").value;
 
-    const users = getUsers();
+    const users = dataPengguna;
 
     const user = users.find(function(user){
         return user.email === email && user.password === password;
@@ -67,4 +79,7 @@ btnBatal.addEventListener("click", ()=>{
     newList("flex", "none");
     formList.reset();
 });
+
+
+
 

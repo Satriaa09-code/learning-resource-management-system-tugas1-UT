@@ -16,9 +16,17 @@
 
             <nav class="nav-list">
                 <button class="btn-dashboard">🏠 &nbsp Dashboard</button>
-                <button class="btn-stock">📖 &nbsp Stock Buku</button>
-                <button class="pesanan">🛒 &nbsp Pesanan</button>
-                <button class="Pengiriman">🚚 &nbsp Pengiriman</button>
+                <button class="btn-bahan-ajar">📚 &nbsp Informasi Bahan Ajar</button>
+                <button class="btn-tracking-pengiriman">🚚 &nbsp Tracking Pengiriman</button>
+                <div class="dropdown">
+                    <button class="btn-laporan" id="btnLaporan">📑 &nbsp Laporan</button>
+                    <ul class="dropdown-laporan" id="dropDownLaporan">
+                    <li><a href="#">Monitoring Progress DO Bahan Ajar</a></li>
+                    <li><a href="#">Rekap Bahan Ajar</a></li>
+                </div>
+                
+                </ul>
+                <button class="btn-historiBA">🔄️ &nbsp Histori Bahan Ajar</button>
                 <button class="keluar">🚪 &nbsp Logout</button>              
             </nav>
         </header>
@@ -31,13 +39,60 @@
                         <span></span>
                         <span></span>
                     </button>
-                    <h2>Dashboard</h2>
+                    <h1>Dashboard</h1>
                 </header>
 
+                <div class="body-dashboard">
+                    <div class="ucapan">
+                        <h2 id="ucap"></h2>
+                        <p>Selamat datang di My SITTA, sistem manajemen bahan ajar.</p>
+                    </div>
+
+                    <div class="cards-dashboard">
+                        <div class="stok-ba-dashboard">
+                            <h3>Stok Bahan Ajar</h3>
+                            <table class="tabel-bahan-ajar">
+                                <thead>
+                                    <tr>
+                                        <th>Kode Barang</th>
+                                        <th>Nama Barang</th>
+                                        <th>Jenis</th>
+                                        <th>Edisi</th>
+                                        <th>Stok</th>
+                                        <th>Cover</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody id="tabelBuku">
+
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="pengiriman-dashboard">
+                            <h3>Cari pengiriman</h3>
+                            <form action="" class="form-cari-ba">
+                                <input type="text" placeholder="Nomor Delivery Order">
+                                <input type="submit" value="Cari">
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </section>
+
+            <section class="stocks">
+                <div>
+                    
+                </div>
+            </section>
+            <section></section>
+            <section></section>
         </main>
     </div>
 
+
+    <script src="js/data.js"></script>
     <script src="js/dasboard.js"></script>
+    
 </body>
 </html>

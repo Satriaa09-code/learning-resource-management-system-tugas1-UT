@@ -143,9 +143,13 @@ input{
 .form-list-container{
     display: none;
     background-color: white;
-    padding:  0rem 2rem 3rem 2rem;
-    width: 17rem;
+    padding:  0rem 5rem 3rem 5rem;
+    width: 430px;
     border-radius: 10px;
+}
+
+.form-list-container label{
+    font-weight: bold;
 }
 
 
@@ -212,6 +216,7 @@ input{
 .dashboard-page{
     display: flex;
     min-height: 100vh;
+    background: var(--primary-color);
 }
 
 .header-nav-container{
@@ -221,9 +226,6 @@ input{
     padding: 0;
     overflow: hidden;
     flex-shrink: 0;
-
-    transition: width 0.4 ease;
-    
 
     background-color: var(--secondary-color);
     color: var(--secondary-font-color);
@@ -238,6 +240,16 @@ input{
 .header-nav-content h1,.header-nav-content p{
     margin: auto;
     text-align: center;
+}
+
+.header-nav-content, .nav-list{
+    opacity: 1;
+    transition: opacity 1s ease;
+}
+
+.header-nav-container:not(.hide) .header-nav-content,
+.header-nav-container:not(.hide) .nav-list {
+    opacity: 0;
 }
 
 .nav-list{
@@ -274,6 +286,33 @@ main{
     flex: 1;
 }
 
+.dropdown-laporan{
+    display: none;
+    position: absolute;
+    left: 50px;
+    width: 250px;
+    min-width: 160px;
+    box-shadow: 0px 8px 10px rgb(0, 0, 0, 0.2);
+    list-style: none;
+    padding: 10px 0 0 7px;
+    margin: 0;
+    z-index: 1;
+
+    background-color: royalblue;
+}
+
+.dropdown li{
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+
+.dropdown a{
+    text-decoration: none;
+    color: var(--primary-color)
+}
+
+
 .hamburger-dashboard{
     display: flex;
     flex-direction: column;
@@ -299,8 +338,90 @@ main{
     padding: 5px 10px;
 }
 
-.header-dashboard h2{
+.header-dashboard h1{
     margin: 0;
 }
 
+.body-dashboard{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 30px;
+}
 
+.body-dashboard h2{
+    margin-bottom: 0;
+}
+
+.body-dashboard p{
+    font-size: 17px;
+}
+
+.ucapan{
+    text-align: center;
+    border-radius: 10px;
+    padding: 5px 20px 5px 55px;
+    width: 50%;
+
+    background-color: var(--secondary-color);
+    color: var(--secondary-font-color);
+
+}
+
+.cards-dashboard{
+    display: flex;
+    gap: 30px;
+}
+
+.stok-ba-dashboard, .pengiriman-dashboard{
+    margin-top: 30px;
+    border-radius: 5px;
+    padding: 0px 20px 30px 20px;
+    background-color: whitesmoke;
+    box-shadow: var(--shadow-box);
+}
+
+.stok-ba-dashboard{
+    flex: 4;
+}
+
+.pengiriman-dashboard{
+    flex: 3;
+    height: fit-content;
+}
+
+
+.tabel-bahan-ajar{
+    text-align: center;
+    border-collapse: collapse;
+}
+
+.tabel-bahan-ajar tr{
+    border-bottom: 1px solid #ccc;
+}
+
+th, td{
+    padding:  10px 14px;
+}
+
+.tabel-bahan-ajar img{
+    width: 65px;
+    height: 90px;
+    object-fit: cover;
+}
+
+.form-cari-ba{
+    display: flex;
+    gap: 10px;
+}
+
+.pengiriman-dashboard [type=text]{
+    width: 70%;
+}
+.pengiriman-dashboard [type=submit]{
+    width: 60px;
+    border-radius: 0;
+    height: 36px;
+}
