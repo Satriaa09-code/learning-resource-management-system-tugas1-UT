@@ -15,8 +15,8 @@
             </div>
 
             <nav class="nav-list">
-                <button class="btn-dashboard">🏠 &nbsp Dashboard</button>
-                <button class="btn-bahan-ajar">📚 &nbsp Informasi Bahan Ajar</button>
+                <button class="btn-dashboard" id="btnDashboard">🏠 &nbsp Dashboard</button>
+                <button class="btn-bahan-ajar" id="btnStockBa">📚 &nbsp Informasi Bahan Ajar</button>
                 <button class="btn-tracking-pengiriman">🚚 &nbsp Tracking Pengiriman</button>
                 <div class="dropdown">
                     <button class="btn-laporan" id="btnLaporan">📑 &nbsp Laporan</button>
@@ -39,10 +39,10 @@
                         <span></span>
                         <span></span>
                     </button>
-                    <h1>Dashboard</h1>
+                    <h1 id="titleHeader">Dashboard</h1>
                 </header>
 
-                <div class="body-dashboard">
+                <div class="body-dashboard" id="bodyDashboard">
                     <div class="ucapan">
                         <h2 id="ucap"></h2>
                         <p>Selamat datang di My SITTA, sistem manajemen bahan ajar.</p>
@@ -50,43 +50,163 @@
 
                     <div class="cards-dashboard">
                         <div class="stok-ba-dashboard">
-                            <h3>Stok Bahan Ajar</h3>
-                            <table class="tabel-bahan-ajar">
-                                <thead>
-                                    <tr>
-                                        <th>Kode Barang</th>
-                                        <th>Nama Barang</th>
-                                        <th>Jenis</th>
-                                        <th>Edisi</th>
-                                        <th>Stok</th>
-                                        <th>Cover</th>
-                                    </tr>
-                                </thead>
+                            <h3> 📚 Stok Bahan Ajar</h3>
+                            <div class="ba-dashboard-scroll">
+                                <table class="tabel-bahan-ajar">
+                                    <thead class="th-tabel-ba-dashboard">
+                                        <tr>
+                                            <th>Kode Barang</th>
+                                            <th>Nama Barang</th>
+                                            <th>Jenis</th>
+                                            <th>Edisi</th>
+                                            <th>Cover</th>
+                                        </tr>
+                                    </thead>
 
-                                <tbody id="tabelBuku">
+                                    <tbody id="tabelBuku">
 
-                                </tbody>
-                            </table>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
 
                         <div class="pengiriman-dashboard">
-                            <h3>Cari pengiriman</h3>
-                            <form action="" class="form-cari-ba">
-                                <input type="text" placeholder="Nomor Delivery Order">
-                                <input type="submit" value="Cari">
-                            </form>
+                            <div>
+                                <h3>🔍 Cari pengiriman</h3>
+                                <form action="" class="form-cari-ba" id="formCari">
+                                    <input id="nomorDeliv" type="text" placeholder="Nomor Delivery Order">
+                                    <input type="submit" value="Cari">
+                                </form>
+                            </div>
+                            <div class="panduan-pengiriman">
+                                <div class="panduan-content">
+                                    <span class="icon-panduan">ℹ️ </span>
+                                    <p>Masukan nomor DO untuk melacak status <br> pengiriman bahan ajar</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </section>
 
             <section class="stocks">
-                <div>
-                    
+                <div class="body-stock" id="bodyStock">
+                    <div class="stock-cover">
+                        <div class="stock-container">
+                            <table>
+                                <thead class="thead-stock">
+                                    <tr>
+                                        <th>Kode Lokasi</th>
+                                        <th>Kode Barang</th>
+                                        <th>Nama Barang</th>
+                                        <th>Jenis Barang</th>
+                                        <th>Edisi</th>
+                                        <th>Stok</th>
+                                        <th>Cover</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody id="dataStockBa">
+
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <button id="btnTambahStok">➕Tambah Stock</button>
+                    </div> 
                 </div>
             </section>
-            <section></section>
-            <section></section>
+            
+            <div class="popups" id="popups">
+                <div class="popup-data-kosong" id="popupDataKosong">
+                    <span>⚠️</span>
+                    <h2>Data Tidak Ditemukan!</h2>
+                </div>
+
+                <div class="popup-cari-pengiriman">
+                    <div class="popup-pengiriman" id="popupPengiriman">
+                        <div class="header-popup-pengiriman">
+                            <div class="header-popup-content">
+                                <span class="icon-paket">📦</span>
+                                <div class="pkt-do">
+                                    <h2>#<span id="paketPopup">-</span></h2>
+                                    <p>DO:394749774779</p>
+                                </div>
+                            </div>
+                            <div class="container-status" id="containerStatus">
+                                <p id="statusPopup">-</p>
+                            </div>
+                        </div>
+
+                        <hr>
+
+                        <div class="body-popup-pengiriman">
+                            <div>
+                                <h3>Nama</h3>
+                                <p id="namaPopup">-</p>
+                            </div>
+                            <div>
+                                <h3>Tanggal kirim</h3>
+                                <p id="tanggalKirimPopup">-</p>
+                            </div>
+                            <div>
+                                <h3>Ekspedisi</h3>
+                                <p id="ekspedisiPopup">-</p>
+                            </div>
+                            <div>
+                                <h3>Total</h3>
+                                <p id="totalPopup">-</p>
+                            </div>
+                        </div>
+
+                        <hr>
+                        
+                        <div class="perjalanan-container">
+                            <h3>Riwayat Perjalanan</h3>
+                            <div class="riwayat-container">
+                               <div id="listPerjalanan"></div>
+                            </div>
+                        </div>
+
+                        <hr>
+
+                        <div class="batal-popup-pengiriman">
+                            <button id="btnPopup">X</button>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="popup-tambah-stok" id="popupTambahStok">
+                    <div class="tambah-stok-container">
+                        <h2>TAMBAH STOK</h2>
+                        <form action="" id="tabelTambahStok" class="tabel-tambah-stok">
+                            <label for="">Kode Lokasi</label><span class="wajib">*</span>
+                                <input id="kdLokasi" type="text" required>
+                            <label for="">Kode Barang</label><span class="wajib">*</span>
+                                <input id="kdBarang" type="text" required>
+                            <label for="">Nama Barang</label><span class="wajib">*</span>
+                                <input id="nama" type="text" required>
+                            <label for="">Jenis Barang</label><span class="wajib">*</span>
+                                <input id="jenis" type="text" required>
+                            <label for="">Edisi</label><span class="wajib">*</span>
+                                <input id="edisi" type="text" required>
+                            <label for="">Stok</label><span class="wajib">*</span>
+                                <input id="stok" type="text" required>
+                            <label for="">Format Cover</label>
+                                <input id="format" type="text" placeholder="contoh: image.jpg">
+
+                            <b><span class="wajib">*</span></b><span class="wajib-content"> Wajib diisi</span>
+
+                            <div class="btns-tambah-stok">
+                                <input type="submit">
+                                <button type="button" id="btnBatalStok">Batal</button>
+                            </div>
+                        </form>
+                        
+                    </div>
+                </div>
+            </div>
         </main>
     </div>
 

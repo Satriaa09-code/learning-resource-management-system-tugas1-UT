@@ -7,6 +7,7 @@
     --secondary-font-color: white;
     --shadow-body: rgba(0, 0, 0, 0.5);
     --primary-font: 'Inter', sans-serif;
+    --font-grey: rgb(78, 78, 78);
     --shadow-box: 0px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
@@ -16,6 +17,8 @@ body{
     padding: 0;
     top: 0;
     box-sizing: border-box;
+    font-family: var(--primary-font);
+    font-size: 14px;
 }
 
 .hero-login{
@@ -125,7 +128,8 @@ input{
 [type=submit]:active{
     color: var(--primary-font-color);
     background-color: var(--primary-color);
-    border: solid 2px black;
+    border: solid 1px var(--font-grey);
+    transition: background-color 0.4s;
     
 }
 
@@ -216,7 +220,7 @@ input{
 .dashboard-page{
     display: flex;
     min-height: 100vh;
-    background: var(--primary-color);
+    background: #f5f7fb;
 }
 
 .header-nav-container{
@@ -286,6 +290,7 @@ main{
     flex: 1;
 }
 
+
 .dropdown-laporan{
     display: none;
     position: absolute;
@@ -344,11 +349,14 @@ main{
 
 .body-dashboard{
     display: flex;
-    flex-direction: column;
     align-items: center;
+}
+
+.body-dashboard, .body-stock{
+    flex-direction: column;
     margin: 0;
-    background-color: rgba(255, 255, 255, 0.5);
-    padding: 30px;
+    padding: 30px 80px;
+    box-sizing: border-box;
 }
 
 .body-dashboard h2{
@@ -362,8 +370,9 @@ main{
 .ucapan{
     text-align: center;
     border-radius: 10px;
-    padding: 5px 20px 5px 55px;
-    width: 50%;
+    padding: 15px 0px;
+    width: 100%;
+    box-shadow: var(--shadow-box);
 
     background-color: var(--secondary-color);
     color: var(--secondary-font-color);
@@ -373,18 +382,34 @@ main{
 .cards-dashboard{
     display: flex;
     gap: 30px;
+    width: 100%;
 }
 
 .stok-ba-dashboard, .pengiriman-dashboard{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     margin-top: 30px;
     border-radius: 5px;
-    padding: 0px 20px 30px 20px;
-    background-color: whitesmoke;
+    padding: 0px 30px 30px 30px;
+    background-color: white;
     box-shadow: var(--shadow-box);
+}
+
+.stok-ba-dashboard h3, .pengiriman-dashboard h3{
+    font-size: large;
 }
 
 .stok-ba-dashboard{
     flex: 4;
+}
+
+.ba-dashboard-scroll{
+    display: flex;
+    justify-content: center;
+    padding: 0px 20px;
+    overflow: auto;
+    max-height: 600px;
 }
 
 .pengiriman-dashboard{
@@ -392,18 +417,49 @@ main{
     height: fit-content;
 }
 
+.panduan-pengiriman{
+    background-color:#a8c5ef;
+    margin-top: 20px;
+    border-radius: 5px;
+    padding: 10px 20px;
+    color: blue;
+}
+
+.panduan-content{
+    display: flex;
+    gap: 8px;
+}
+
+.panduan-content p{
+    margin-top: 4px;
+}
+
+.icon-panduan{
+    font-size: 1.2rem;
+}
 
 .tabel-bahan-ajar{
     text-align: center;
     border-collapse: collapse;
+    width: 100%;
 }
 
-.tabel-bahan-ajar tr{
+.tabel-bahan-ajar td{
     border-bottom: 1px solid #ccc;
 }
 
 th, td{
     padding:  10px 14px;
+}
+
+.tabel-bahan-ajar thead{
+    height: 60px;
+}
+
+.th-tabel-ba-dashboard th{
+    position: sticky;
+    top: 0;
+    background-color: #a8c5ef;
 }
 
 .tabel-bahan-ajar img{
@@ -414,14 +470,319 @@ th, td{
 
 .form-cari-ba{
     display: flex;
-    gap: 10px;
+    gap: 17px;
 }
 
 .pengiriman-dashboard [type=text]{
-    width: 70%;
+    width: 80%;
+    height: 40px;
+    border-radius: 5px;
+    border: 1px solid;
 }
+
 .pengiriman-dashboard [type=submit]{
-    width: 60px;
-    border-radius: 0;
-    height: 36px;
+    width: 80px;
+    border-radius: 5px;
+    height: 42px;
+}
+
+/* POPUPS ====================================*/
+.popups{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+   
+    background: var(--shadow-body);
+}
+
+.popup-data-kosong{
+    display: none;
+    background-color: white;
+    padding: 30px 20px;
+    border-radius: 15px;
+    border: 3px solid rgba(255, 0, 0, 0.26);
+    color: black;
+    box-shadow: var(--shadow-box);
+}
+
+.popup-data-kosong span{
+    font-size: 2rem;
+}
+
+.popup-pengiriman{
+    display: none;
+    width: 430px;
+    max-height: 85vh;
+    padding: 30px;
+    border-radius: 5px;
+    box-sizing: border-box;
+    background-color: white;
+
+}
+
+.header-popup-pengiriman{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.header-popup-content{
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.icon-paket{
+    font-size: 2rem;
+    background-color: #69bee6;
+    border-radius: 7px;
+    padding: 0px 3px 3px 3px;
+}
+
+.pkt-do p, .pkt-do h2, .container-status p, .body-popup-pengiriman h3, .body-popup-pengiriman p{
+    margin: 0;
+}
+
+.pkt-do p{
+    color: var(--font-grey);
+}
+
+.container-status{
+    display: flex;
+    align-items: center;
+    background-color: gray;
+    height: 20px;
+    border-radius: 20px;
+    padding: 8px 10px;
+}
+
+
+hr{
+    margin: 20px 0px;
+}
+
+.body-popup-pengiriman{
+    padding: 0px 0px 0px 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px 40px;
+    justify-content: center;
+}
+
+.body-popup-pengiriman p{
+    color: var(--font-grey);
+    margin-top: 5px;
+}
+
+.riwayat-container{
+    max-height: 200px;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+.item-perjalanan{
+    display: flex;
+    gap: 12px;
+    position: relative;
+    padding-bottom: 20px;
+}
+
+.titik{
+    width: 12px;
+    height: 12px;
+    margin-top: 20px;
+    border-radius: 50%;
+    background-color: var(--secondary-color);
+    flex-shrink: 0;
+}
+
+.isi-perjalanan{
+    flex: 1;
+}
+
+.isi-perjalanan h3{
+    margin: 0;
+    font-size: 14px;
+}
+
+.isi-perjalanan p{
+    margin: 0;
+    color: var(--font-grey);
+    font-size: 13px;
+}
+
+.item-perjalanan:not(:last-child) .titik::after{
+    content: "";
+    position: absolute;
+    top: 30px;
+    left: 5px;
+    width: 2px;
+    height: calc(100% - 17px);
+    background-color: var(--secondary-color);
+}
+
+.batal-popup-pengiriman{
+    display: flex;
+    justify-content: center;
+}
+
+.batal-popup-pengiriman button{
+    font-size: 2rem;
+    width: 50px;
+    height: 50px;
+    border: none;
+    background-color: rgba(255, 0, 0, 0.518);
+    color: white;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.tambah-stok-container h2{
+    margin: 0;
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 20px;
+}
+
+
+.popup-tambah-stok{
+    display: none;
+}
+
+.tambah-stok-container{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    box-shadow: var(--shadow-box);
+    box-sizing: border-box;
+    padding: 20px 40px;
+    width: 500px;
+    border-radius: 10px;
+}
+
+.btns-tambah-stok{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.tabel-tambah-stok [type=submit]{
+    width: 100px;
+    border-radius: 7px;
+    height: 40px;
+}
+
+
+.tabel-tambah-stok button{
+    width: 100px;
+    height: 40px;
+    box-sizing: border-box;
+    border: none;
+    background-color: gray;
+    color: white;
+    font-weight: bold;
+    border-radius: 7px;
+}
+
+
+.tabel-tambah-stok input{
+    padding: 0px;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+    padding: 0px 5px;
+    border: 1px solid var(--font-grey);
+}
+
+.tabel-tambah-stok label{
+    font-weight: bold;
+}
+
+.tabel-tambah-stok [type=text]:focus{
+    border: 2px solid red;
+    outline: none;
+
+    transition: border-color 0.5s;
+}
+
+.wajib{
+    color: red;
+}
+
+.wajib-content{
+    color: red;
+    opacity: 0.5;
+}
+
+/* INFROMASI BAHAN AJAR */
+.body-stock{
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.stock-container img{
+    width: 85px;
+    height: 115px;
+    object-fit: cover;
+}
+
+.stock-container{
+    display: flex;
+    justify-content: center;
+    width: auto;
+    margin-bottom: 20px;
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.stock-container table{
+    border-collapse: collapse;
+    width: 100%;
+    text-align: center;
+}
+
+.stock-container td{
+    border-bottom: 1px solid black;
+}
+
+
+.thead-stock th{
+    background-color:#a8c5ef;
+    position: sticky;
+    top: 0;
+    height: 60px;
+    border-bottom: none;
+}
+
+.stock-cover{
+    justify-content: center;
+    background-color: white;
+    box-shadow: var(--shadow-box);
+    padding: 50px;
+    border-radius: 7px;
+    width: 80%;
+}
+
+.stock-cover button{
+    height: 45px;
+    width: 15%;
+    font-size: 15px;
+    border: none;
+    border-radius: 5px;
+    color: var(--secondary-font-color);
+    background-color: var(--secondary-color);
+}
+
+.stock-cover button:active, .tabel-tambah-stok button:active
+{
+    background-color: white;
+    color: black;
+    border: 1px solid var(--font-grey);
+    transition: background-color 0.4s;
 }

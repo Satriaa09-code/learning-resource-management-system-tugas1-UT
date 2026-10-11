@@ -114,9 +114,9 @@ var dataTracking = {
     ]
   },
   "2023005678": {
-    nomorDO: "2023001234",
+    nomorDO: "2023005678",
     nama: "Agus Pranoto",
-    status: "Dikirim",
+    status: "Selesai",
     ekspedisi: "Pos Indonesia",
     tanggalKirim: "2025-08-25",
     paket: "0UPBJJBDG",
